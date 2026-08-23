@@ -1,3 +1,4 @@
+
 #include <stdio.h>
 
 void input(long int *matrixno, float *test1, float *test2, float *finalexam);
@@ -26,13 +27,12 @@ int main(){
         printf("\n");
     }
     
-
     return 0;
 }
 
 void input(long int *matrixno, float *test1, float *test2, float *finalexam){
     printf("Insert matrix no. of the student\t\t: ");
-    scanf("%d", matrixno);
+    scanf("%ld", matrixno);
 
     printf("Insert marks for Test 1 (total of 25)\t\t: ");
     scanf("%f", test1);
@@ -42,7 +42,6 @@ void input(long int *matrixno, float *test1, float *test2, float *finalexam){
 
     printf("Insert marks for Final Exam (total of 50)\t: ");
     scanf("%f", finalexam);
-
 }
 
 void sum_marks(float test1, float test2, float finalexam, float *result){
@@ -50,12 +49,12 @@ void sum_marks(float test1, float test2, float finalexam, float *result){
 }
 
 void compute_grade(float result, char *grade){
-    if (result >= 80) *grade = 'A';
+    if (result >= 80 && result <= 100) *grade = 'A';
     else if (result >= 65 && result <= 79) *grade = 'B';
-    else if (result >= 50 || result <= 64) *grade = 'C';
-    else if (result >=40 || result <= 49) *grade = 'D';
-    else if (result >= 25 || result <=39) *grade = 'E';
-    else if (result < 25) *grade = 'F';
+    else if (result >= 50 && result <= 64) *grade = 'C';
+    else if (result >=40 && result <= 49) *grade = 'D';
+    else if (result >= 25 && result <=39) *grade = 'E';
+    else *grade = 'F';
 }
 
 void print_all(long int matrix_no, float score, char grade){
